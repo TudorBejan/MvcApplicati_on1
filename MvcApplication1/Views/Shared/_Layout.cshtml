@@ -1,0 +1,57 @@
+﻿@if (Request.IsAuthenticated)
+{
+    ProiectIEP.Models.UserProfile user = new ProiectIEP.Models.RestaurantContext().UserProfiles.Single(u => u.UserName == User.Identity.Name);
+    Session["userID"] = user.UserId;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>@ViewBag.Title - Our MSP Store</title>
+    <meta charset="utf-8" />
+	<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- <script defer type="text/javascript" src="pngfix.js"></script> -->
+    @Styles.Render("~/Content/all.css")
+</head>
+<body>
+	<div id="page">
+		<div id="header">
+			<div class="background">
+				<h1>@Html.ActionLink("Home", "Index", "Home")</h1>
+				<ul>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Restaurants", "Index", "Restaurant")</li>
+                    @Html.Partial("_LoginPartial")
+				</ul>
+			</div>
+		</div>
+        <!--------------------------------------------------- START VIEWS ------------------------------------------------------------- -->
+		<div id="content">
+			<div id="leftcol">
+				<div class="block">
+					<div class="block-top"></div>
+					<div class="block-content">
+						@RenderBody()
+					</div>
+					<div class="block-bottom"></div>
+				</div>
+			</div>
+			@Html.Partial("RightContentPartial")
+		</div>
+        
+         <!--------------------------------------------------- END VIEWS ------------------------------------------------------------- -->
+        
+		<div id="footer">
+			<p>©2009 The DelliStore. Design by <a href="http://www.dellustrations.com/templates.html">Dellustrations.com</a> for <a href="http://www.smashingmagazine.com">Smashing Magazine</a></p>
+			<ul>
+				<li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Restaurants", "Index", "Restaurants")</li>
+                <li>@Html.ActionLink("Search", "Index", "Search")</li>
+			</ul>
+		</div>
+	</div>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

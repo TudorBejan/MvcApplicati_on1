@@ -1,0 +1,24 @@
+﻿<div id="rightcol">
+				<div class="block">
+					<div class="block-top"></div>
+					<div class="block-content">
+						<h3>Quick search</h3>
+                        </br>
+					    @using (Html.BeginForm("Search", "Restaurant", FormMethod.Get))
+                            {
+                                @Html.Label("Restaurant name", new { @class="newline"});
+                                @Html.TextBox("name");
+                                @Html.Label("Cuisine", new { @class = "newline" });
+                                @Html.TextBox("cuisine");
+                                @Html.Label("City name", new { @class="newline"});
+                                @Html.TextBox("city");
+                                @Html.Label("County name", new { @class = "newline" });
+                                @Html.TextBox("county");
+                                @Html.Label("Country name", new { @class = "newline" });
+                                @Html.TextBox("country");
+                                <input type="submit" value="Search" />
+                            }
+					</div>
+					<div class="block-bottom"></div>
+				</div>
+            </div>

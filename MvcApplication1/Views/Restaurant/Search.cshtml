@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ProiectIEP.Models.Restaurant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (Request.IsAuthenticated) {
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RestName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuisine.CuisineName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RestName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuisine.CuisineName)
+        </td>
+        
+        <td>
+        @Html.ActionLink("Details", "Details", new { id=item.RestId })
+        @if (Request.IsAuthenticated && (item.UserId == (int) Session["userID"])) {
+             @Html.ActionLink("Edit", "Edit", new { id=item.RestId })
+             @Html.DisplayText(" | ")
+             @Html.ActionLink("Delete", "Delete", new { id=item.RestId })
+        }
+        </td>
+    </tr>
+}
+    </table>
+
+
+

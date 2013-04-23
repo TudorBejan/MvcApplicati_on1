@@ -1,0 +1,6 @@
+﻿
+<h2>Welcome to the <span>awesome website</span></h2>
+<p>
+<img class="cake" src="../Images/img-cake.jpg" alt="Cake" />
+Mister Gyori, do you like our website?</p>
+<a class="yellow-button" href="#"><span>YES, of course</span></a><a class="yellow-button" id="noGyori" href="#" style="margin-left:5px" onmouseover="document.getElementById('noGyori').style.display = 'none';"><span>..no</span></a>

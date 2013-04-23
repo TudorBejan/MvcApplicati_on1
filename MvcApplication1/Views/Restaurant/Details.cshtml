@@ -1,0 +1,65 @@
+﻿@model ProiectIEP.Models.Restaurant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <img src="/Images/DefaultRestaurantImage.jpg" width="500" />
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RestName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RestName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.City)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.City)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.County)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.County)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Country)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Country)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.User.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.User.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Cuisine.CuisineName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cuisine.CuisineName)
+    </div>
+</fieldset>
+<p>
+    @if (Request.IsAuthenticated && (Model.UserId == (int) Session["userID"])) {
+    @Html.ActionLink("Edit", "Edit", new { id=Model.RestId })
+    }
+    @Html.ActionLink("Back to List", "Index")
+</p>
